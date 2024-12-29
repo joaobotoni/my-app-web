@@ -1,4 +1,5 @@
 import Login from "../login";
+import Register from "../register";
 import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
 import { BsPatchCheck } from "react-icons/bs";
@@ -10,8 +11,8 @@ interface SideBarProps {
 }
 
 function HomeSideBar({ closeSidebar }: SideBarProps) {
-    const [sidebar, setSidebar] = useState(false);
-    const showSideBar = () => setSidebar(!sidebar);
+    const [activeSidebar, setActiveSidebar] = useState<"login" | "register" | null>(null);
+
     return (
         <>
             <div className="fixed top-0 right-0 flex flex-col items-center w-[630px] h-[1024px] bg-[#393939] text-white">
@@ -27,28 +28,40 @@ function HomeSideBar({ closeSidebar }: SideBarProps) {
                     </p>
                 </div>
                 <div className="mt-[140px] flex space-x-6">
-                    <div className="w-[150px] h-[150px] bg-[#6C6565] rounded-lg">
-                        <MdOutlineHandshake className="m-[10px] text-[30px]" />
-                        <p className="mt-[80px] ml-[10px]">Compromisso</p>
+                    <div className="w-[150px] h-[150px] bg-[#6C6565] rounded-lg flex flex-col items-center justify-center">
+                        <MdOutlineHandshake className="text-[30px]" />
+                        <p className="mt-2">Compromisso</p>
                     </div>
-                    <div className="w-[150px] h-[150px] bg-[#6C6565] rounded-lg">
-                        <BsPatchCheck className="m-[10px] text-[30px]" />
-                        <p className="mt-[80px] ml-[10px]">Qualidade</p>
+                    <div className="w-[150px] h-[150px] bg-[#6C6565] rounded-lg flex flex-col items-center justify-center">
+                        <BsPatchCheck className="text-[30px]" />
+                        <p className="mt-2">Qualidade</p>
                     </div>
-                    <div className="w-[150px] h-[150px] bg-[#6C6565] rounded-lg">
-                        <FaShieldAlt className="m-[10px] text-[30px]" />
-                        <p className="mt-[80px] ml-[10px]">Segurança</p>
+                    <div className="w-[150px] h-[150px] bg-[#6C6565] rounded-lg flex flex-col items-center justify-center">
+                        <FaShieldAlt className="text-[30px]" />
+                        <p className="mt-2">Segurança</p>
                     </div>
                 </div>
                 <div className="mt-[100px] flex flex-col space-y-6">
-                    <button className="w-[522px] h-[70px] bg-[#597054] rounded-lg" onClick={showSideBar}>
+                    <button
+                        className="w-[522px] h-[70px] bg-[#597054] rounded-lg"
+                        onClick={() => setActiveSidebar("login")}
+                    >
                         <p>Acessar minha conta</p>
                     </button>
-                    <button className="w-[522px] h-[70px] border-2 border-[#597054] rounded-lg">Cadastrar-se</button>
+                    <button
+                        className="w-[522px] h-[70px] border-2 border-[#597054] rounded-lg"
+                        onClick={() => setActiveSidebar("register")}
+                    >
+                        <p>Cadastrar-se</p>
+                    </button>
                 </div>
-                {sidebar && <Login closeSidebar={() => setSidebar(false)} />}
+                {activeSidebar === "login" && (
+                    <Login closeSidebar={() => setActiveSidebar(null)} />
+                )}
+                {activeSidebar === "register" && (
+                    <Register closeSidebar={() => setActiveSidebar(null)} />
+                )}
             </div>
-
         </>
     );
 }
