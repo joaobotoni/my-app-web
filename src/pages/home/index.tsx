@@ -13,7 +13,7 @@ function Home() {
                     <p>Conecte-se direto com quem produz. Sem intermediários!</p>
                     <div className='mt-10'>
                         <button className="flex items-center bg-[#597054] px-4 py-3 rounded-lg">
-                            <span>Abrir minha conta</span>
+                            <span>Saiba Mais</span>
                         </button>
                     </div>
                 </div>

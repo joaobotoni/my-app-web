@@ -30,15 +30,15 @@ function HomeSideBar({ closeSidebar }: SideBarProps) {
                 <div className="mt-[140px] flex space-x-6">
                     <div className="w-[150px] h-[150px] bg-[#6C6565] rounded-lg flex flex-col items-center justify-center">
                         <MdOutlineHandshake className="text-[30px]" />
-                        <p className="mt-2">Compromisso</p>
+                        <p className="mt-9">Compromisso</p>
                     </div>
                     <div className="w-[150px] h-[150px] bg-[#6C6565] rounded-lg flex flex-col items-center justify-center">
                         <BsPatchCheck className="text-[30px]" />
-                        <p className="mt-2">Qualidade</p>
+                        <p className="mt-9">Qualidade</p>
                     </div>
                     <div className="w-[150px] h-[150px] bg-[#6C6565] rounded-lg flex flex-col items-center justify-center">
                         <FaShieldAlt className="text-[30px]" />
-                        <p className="mt-2">Segurança</p>
+                        <p className="mt-9">Segurança</p>
                     </div>
                 </div>
                 <div className="mt-[100px] flex flex-col space-y-6">

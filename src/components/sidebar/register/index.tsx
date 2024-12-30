@@ -1,4 +1,6 @@
 import Input from "../../input";
+import Login from "../login";
+import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
 
 interface SideBarProps {
@@ -6,12 +8,14 @@ interface SideBarProps {
 }
 
 function Register({ closeSidebar }: SideBarProps) {
+    const [activeSidebar, setActiveSidebar] = useState<null | string>(null);
+
     return (
         <div className="fixed top-0 right-0 flex flex-col w-[630px] h-[1024px] bg-[#393939] text-white">
             <IoIosClose
                 size={38}
                 className="absolute top-4 right-4 text-white cursor-pointer"
-                onClick={closeSidebar}
+                onClick={closeSidebar} 
             />
             <div className="mt-[100px] text-center">
                 <h1 className="text-[24px] font-bold">Olá seja bem-vindo</h1>
@@ -23,23 +27,27 @@ function Register({ closeSidebar }: SideBarProps) {
                 >
                     <Input
                         type="text"
+                        label="Nome"
                         placeholder="Digite seu Nome"
-                        className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#6C6565] rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D]"
+                        className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#B7B7B7]/40 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D] placeholder:text-[#B5B5B5]"
                     />
                     <Input
                         type="text"
+                        label="Telefone"
                         placeholder="Digite seu Telefone"
-                        className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#6C6565] rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D]"
+                        className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#B7B7B7]/40 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D] placeholder:text-[#B5B5B5]"
                     />
                     <Input
                         type="email"
+                        label="Email"
                         placeholder="Digite seu Email"
-                        className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#6C6565] rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D]"
+                        className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#B7B7B7]/40 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D] placeholder:text-[#B5B5B5]"
                     />
                     <Input
+                        label="Senha"
                         type="password"
                         placeholder="Digite sua senha"
-                        className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#6C6565] rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D]"
+                        className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#B7B7B7]/40 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D] placeholder:text-[#B5B5B5]"
                     />
                     <button
                         type="submit"
@@ -48,15 +56,23 @@ function Register({ closeSidebar }: SideBarProps) {
                         Entrar
                     </button>
                 </form>
-                <div className="mt-[20px]">
+                <div className="mt-[20px] flex justify-start w-full px-[60px]">
                     <p className="text-[14px]">
-                        já tem uma conta?{" "}
-                        <span className="text-[#8DBF7D] cursor-pointer">Entrar</span>
+                        Já tem uma conta?{" "}
+                        <span
+                            className="text-[#8DBF7D] cursor-pointer"
+                            onClick={() => setActiveSidebar("login")}
+                        >
+                            Entrar
+                        </span>
                     </p>
                 </div>
             </div>
+            {activeSidebar === "login" && (
+                <Login closeSidebar={closeSidebar} /> 
+            )}
         </div>
     );
 }
 
-export default Register
+export default Register;
