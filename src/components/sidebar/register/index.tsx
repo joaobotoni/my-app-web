@@ -27,24 +27,20 @@ function Register({ closeSidebar }: SideBarProps) {
                 >
                     <Input
                         type="text"
-                        label="Nome"
                         placeholder="Digite seu Nome"
                         className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#B7B7B7]/40 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D] placeholder:text-[#B5B5B5]"
                     />
                     <Input
                         type="text"
-                        label="Telefone"
                         placeholder="Digite seu Telefone"
                         className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#B7B7B7]/40 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D] placeholder:text-[#B5B5B5]"
                     />
                     <Input
                         type="email"
-                        label="Email"
                         placeholder="Digite seu Email"
                         className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#B7B7B7]/40 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D] placeholder:text-[#B5B5B5]"
                     />
                     <Input
-                        label="Senha"
                         type="password"
                         placeholder="Digite sua senha"
                         className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#B7B7B7]/40 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-[#8DBF7D] placeholder:text-[#B5B5B5]"
@@ -53,7 +49,7 @@ function Register({ closeSidebar }: SideBarProps) {
                         type="submit"
                         className="w-[522px] h-[70px] px-4 py-2 text-lg text-white bg-[#597054] rounded-lg"
                     >
-                        Entrar
+                        Cadastrar-se
                     </button>
                 </form>
                 <div className="mt-[20px] flex justify-start w-full px-[60px]">

@@ -32,7 +32,7 @@ function HomeSideBar({ closeSidebar }: SideBarProps) {
                         <MdOutlineHandshake className="text-[30px]" />
                         <p className="mt-9">Compromisso</p>
                     </div>
-                    <div className="w-[150px] h-[150px] bg-[#6C6565] rounded-lg flex flex-col items-center justify-center">
+                    <div className="w-[150px] 'h-[150px] bg-[#6C6565] rounded-lg flex flex-col items-center justify-center">
                         <BsPatchCheck className="text-[30px]" />
                         <p className="mt-9">Qualidade</p>
                     </div>
